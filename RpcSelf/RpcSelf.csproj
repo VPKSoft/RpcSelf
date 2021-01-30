@@ -7,11 +7,15 @@
     <Description>A simple TCP messaging library mainly to pass data between multiple instances between same application.</Description>
     <Copyright>Copyright © VPKSoft 2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>rpc tcp</PackageTags>
-    <PackageReleaseNotes>See:</PackageReleaseNotes>
+    <PackageTags>rpc tcp ipc</PackageTags>
+    <PackageReleaseNotes>See: https://github.com/VPKSoft/RpcSelf/blob/main/CHANGELOG.md</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <ApplicationIcon>RpcSelf.ico</ApplicationIcon>
+    <PackageIcon>RpcSelf.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/VPKSoft/RpcSelf</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/VPKSoft/RpcSelf</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -24,6 +28,13 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Misc\RpcSelf.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

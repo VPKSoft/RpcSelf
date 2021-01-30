@@ -5,10 +5,27 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>RpcSelf.ico</ApplicationIcon>
+    <Authors>VPKSoft</Authors>
+    <Description>Test application for the server side of the library.</Description>
+    <Copyright>Copyright © VPKSoft 2021</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/VPKSoft/RpcSelf</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/VPKSoft/RpcSelf</RepositoryUrl>
+    <PackageIcon>RpcSelf.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>rpc tcp ipc</PackageTags>
+    <PackageReleaseNotes>See: https://github.com/VPKSoft/RpcSelf/blob/main/CHANGELOG.md</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RpcSelf\RpcSelf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Misc\RpcSelf.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

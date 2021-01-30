@@ -7,6 +7,14 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>VPKSoft</Authors>
     <ApplicationIcon>RpcSelf.ico</ApplicationIcon>
+    <Copyright>Copyright © VPKSoft 2021</Copyright>
+    <PackageProjectUrl>https://github.com/VPKSoft/RpcSelf</PackageProjectUrl>
+    <PackageIcon>RpcSelf.png</PackageIcon>
+    <RepositoryUrl>https://github.com/VPKSoft/RpcSelf</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>rpc tcp ipc</PackageTags>
+    <PackageReleaseNotes>See: https://github.com/VPKSoft/RpcSelf/blob/main/CHANGELOG.md</PackageReleaseNotes>
+    <Description>Test application for the client side of the library.</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +23,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RpcSelf\RpcSelf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Misc\RpcSelf.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
