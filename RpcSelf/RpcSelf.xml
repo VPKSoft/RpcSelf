@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RpcSelf</name>
+    </assembly>
+    <members>
+        <member name="T:RpcSelf.IpcExchangeEventArgs`1">
+            <summary>
+            Event arguments for the <see cref="F:RpcSelf.RpcSelfHost`1.MessageReceived"/> event.
+            Implements the <see cref="T:System.EventArgs" />
+            </summary>
+            <typeparam name="T">The type of object to transmit data with.</typeparam>
+            <seealso cref="T:System.EventArgs" />
+        </member>
+        <member name="P:RpcSelf.IpcExchangeEventArgs`1.Object">
+            <summary>
+            Gets or sets the data object.
+            </summary>
+            <value>The data object.</value>
+        </member>
+        <member name="T:RpcSelf.RequestDataDecryptionEventArgs">
+            <summary>
+            Class RequestDataDecryptionEventArgs.
+            Implements the <see cref="T:System.EventArgs" />
+            </summary>
+            <seealso cref="T:System.EventArgs" />
+        </member>
+        <member name="P:RpcSelf.RequestDataDecryptionEventArgs.Data">
+            <summary>
+            Gets or sets the data which is requested to be decrypted by an event.
+            </summary>
+            <value>The data which is requested to be decrypted by an event.</value>
+        </member>
+        <member name="T:RpcSelf.RequestDataEncryptionEventArgs">
+            <summary>
+            Class RequestDataDecryptionEventArgs.
+            Implements the <see cref="T:System.EventArgs" />
+            </summary>
+            <seealso cref="T:System.EventArgs" />
+        </member>
+        <member name="P:RpcSelf.RequestDataEncryptionEventArgs.Data">
+            <summary>
+            Gets or sets the data which is requested to be encrypted by an event.
+            </summary>
+            <value>The data which is requested to be encrypted by an event.</value>
+        </member>
+        <member name="T:RpcSelf.RpcSelfClient`1">
+            <summary>
+            A class to send TCP data containing objects of type of <typeparamref name="T"/> serialized to JSON.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:RpcSelf.RpcSelfClient`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RpcSelf.RpcSelfClient`1"/> class.
+            </summary>
+            <param name="port">The port to use for TCP communication.</param>
+        </member>
+        <member name="M:RpcSelf.RpcSelfClient`1.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RpcSelf.RpcSelfClient`1"/> class.
+            </summary>
+            <param name="hostName">The host name for the <see cref="T:System.Net.Sockets.TcpClient"/> to connect to.</param>
+            <param name="port">The port to use for TCP communication.</param>
+        </member>
+        <member name="P:RpcSelf.RpcSelfClient`1.Port">
+            <summary>
+            Gets or sets the port to use with the TCP communication.
+            </summary>
+            <value>The port to use with the TCP communication.</value>
+        </member>
+        <member name="P:RpcSelf.RpcSelfClient`1.HostName">
+            <summary>
+            Gets or sets the host name to use with the TCP communication.
+            </summary>
+            <value>The host name to use with the TCP communication.</value>
+        </member>
+        <member name="P:RpcSelf.RpcSelfClient`1.Client">
+            <summary>
+            Gets or sets the <see cref="T:System.Net.Sockets.TcpClient"/> client instance to use with the TCP communication.
+            </summary>
+            <value>The <see cref="T:System.Net.Sockets.TcpClient"/> client instance to use with the TCP communication.</value>
+        </member>
+        <member name="M:RpcSelf.RpcSelfClient`1.SendData(`0,System.Exception@)">
+            <summary>
+            Sends the specified data object to the TCP server as a JSON string.
+            </summary>
+            <param name="data">The data to send.</param>
+            <param name="exception">An exception object in case one occurs within the method.</param>
+            <returns><c>true</c> if the <paramref name="data"/> was sent successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="F:RpcSelf.RpcSelfClient`1.RequestDataEncryption">
+            <summary>
+            An event which is occurs when data should be encrypted via an external algorithm.
+            </summary>
+        </member>
+        <member name="M:RpcSelf.RpcSelfClient`1.Encrypt(System.Byte[])">
+            <summary>
+            Encrypts the specified data bytes via the <see cref="F:RpcSelf.RpcSelfClient`1.RequestDataEncryption"/> event if subscribed.
+            </summary>
+            <param name="dataBytes">The data bytes to encrypt.</param>
+            <returns>A System.Byte[] array containing the encrypt bytes.</returns>
+        </member>
+        <member name="M:RpcSelf.RpcSelfClient`1.SendDataAsync(`0)">
+            <summary>
+            Sends the specified data object to the TCP server as a JSON string asynchronously.
+            </summary>
+            <returns><c>true</c> if the <paramref name="data"/> was sent successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:RpcSelf.RpcSelfClient`1.SendDataExAsync(`0)">
+            <summary>
+            Sends the specified data object to the TCP server as a JSON string asynchronously.
+            </summary>
+            <param name="data">The data to send.</param>
+            <returns>A KeyValuePair&lt;System.Boolean, Exception&gt; containing the information if the data was sent successfully and an exception in case the operation was unsuccessful.</returns>
+        </member>
+        <member name="M:RpcSelf.RpcSelfClient`1.SendData(`0)">
+            <summary>
+            Sends the specified data object to the TCP server as a JSON string.
+            </summary>
+            <param name="data">The data to send.</param>
+            <returns><c>true</c> if the <paramref name="data"/> was sent successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:RpcSelf.RpcSelfHost`1">
+            <summary>
+            A class to accept TCP data containing objects of type of <typeparamref name="T"/> deserialized as JSON via a client class.
+            Implements the <see cref="T:System.IDisposable" />
+            </summary>
+            <typeparam name="T">The type of object to transmit data with.</typeparam>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="M:RpcSelf.RpcSelfHost`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RpcSelf.RpcSelfHost`1"/> class.
+            </summary>
+            <param name="port">The port to use for TCP communication.</param>
+        </member>
+        <member name="M:RpcSelf.RpcSelfHost`1.#ctor(System.Net.IPAddress,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RpcSelf.RpcSelfHost`1"/> class.
+            </summary>
+            <param name="address">The address for the <see cref="T:System.Net.Sockets.TcpListener"/> class instance.</param>
+            <param name="port">The port to use for TCP communication.</param>
+            <param name="asyncThreadingContext">if set to <c>true</c> an asynchronous threading context is used to raise the <see cref="F:RpcSelf.RpcSelfHost`1.MessageReceived"/> event.</param>
+        </member>
+        <member name="P:RpcSelf.RpcSelfHost`1.AsyncThreadingContext">
+            <summary>
+            Gets or sets a value indicating whether the <see cref="F:RpcSelf.RpcSelfHost`1.MessageReceived"/> event should be raised in an asynchronous threading context.
+            </summary>
+            <value><c>true</c> if the <see cref="F:RpcSelf.RpcSelfHost`1.MessageReceived"/> event should be raised in an asynchronous threading context; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:RpcSelf.RpcSelfHost`1.ServerListenerThread">
+            <summary>
+            Gets or sets the server listener thread.
+            </summary>
+            <value>The server listener thread.</value>
+        </member>
+        <member name="F:RpcSelf.RpcSelfHost`1.stopped">
+            <summary>
+            A value to indicate whether to stop the TPC listener thread.
+            </summary>
+        </member>
+        <member name="P:RpcSelf.RpcSelfHost`1.Server">
+            <summary>
+            Gets the <see cref="T:System.Net.Sockets.TcpListener"/> instance acting as server.
+            </summary>
+            <value>The <see cref="T:System.Net.Sockets.TcpListener"/> instance acting as server.</value>
+        </member>
+        <member name="F:RpcSelf.RpcSelfHost`1.MessageReceived">
+            <summary>
+            Occurs when an object data was received via TCP protocol.
+            </summary>
+        </member>
+        <member name="M:RpcSelf.RpcSelfHost`1.RpcListener">
+            <summary>
+            The TCP listener thread function.
+            </summary>
+        </member>
+        <member name="M:RpcSelf.RpcSelfHost`1.SerializeFromStream(System.IO.Stream)">
+            <summary>
+            Serializes and object from the specified stream containing JSON data of the object.
+            </summary>
+            <param name="stream">The stream to read the object JSON data from.</param>
+            <returns>An instance of the <see cref="!:T"/> object.</returns>
+        </member>
+        <member name="M:RpcSelf.RpcSelfHost`1.Close">
+            <summary>
+            Closes the TCP connection used by this instance.
+            </summary>
+        </member>
+        <member name="F:RpcSelf.RpcSelfHost`1.RequestDataDecryption">
+            <summary>
+            An event which is occurs when data should be decrypted via an external algorithm.
+            </summary>
+        </member>
+        <member name="M:RpcSelf.RpcSelfHost`1.Decrypt(System.Byte[])">
+            <summary>
+            Decrypts the specified data bytes via the <see cref="F:RpcSelf.RpcSelfHost`1.RequestDataDecryption"/> event if subscribed.
+            </summary>
+            <param name="dataBytes">The data bytes to decrypt.</param>
+            <returns>A System.Byte[] array containing the decrypted bytes.</returns>
+        </member>
+        <member name="F:RpcSelf.RpcSelfHost`1.disposed">
+            <summary>
+            A value indicating whether the <see cref="M:RpcSelf.RpcSelfHost`1.Dispose(System.Boolean)"/> has been called.
+            </summary>
+        </member>
+        <member name="M:RpcSelf.RpcSelfHost`1.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:RpcSelf.RpcSelfHost`1.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:RpcSelf.RpcSelfHost`1.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:RpcSelf.RpcSelfHost`1"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>

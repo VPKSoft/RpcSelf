@@ -1,6 +1,8 @@
+﻿#region License
+/*
 MIT License
 
-Copyright (c) 2021 Petteri Kautonen
+Copyright(c) 2021 Petteri Kautonen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +21,34 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+#endregion
+
+using System;
+using System.Windows.Forms;
+using RpcSelf;
+using TestAppServer;
+
+namespace TestAppClient
+{
+    public partial class FormMain : Form
+    {
+        public FormMain()
+        {
+            InitializeComponent();
+        }
+
+        private RpcSelfClient<DataTestClass> Client { get; set; }
+
+        private void CreateClient()
+        {
+            Client ??= new RpcSelfClient<DataTestClass>((int) nudPort.Value);
+        }
+
+        private void btSend_Click(object sender, EventArgs e)
+        {
+            CreateClient();
+            Client.SendData(new DataTestClass {Message = tbMessage.Text, MessageId = (int) nudMessageId.Value});
+        }
+    }
+}

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>VPKSoft</Authors>
+    <ApplicationIcon>RpcSelf.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\TestAppServer\DataTestClass.cs" Link="DataTestClass.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RpcSelf\RpcSelf.csproj" />
+  </ItemGroup>
+
+</Project>

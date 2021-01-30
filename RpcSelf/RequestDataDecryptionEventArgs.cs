@@ -1,6 +1,8 @@
+﻿#region License
+/*
 MIT License
 
-Copyright (c) 2021 Petteri Kautonen
+Copyright(c) 2021 Petteri Kautonen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +21,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+#endregion
+
+using System;
+
+namespace RpcSelf
+{
+    /// <summary>
+    /// Class RequestDataDecryptionEventArgs.
+    /// Implements the <see cref="System.EventArgs" />
+    /// </summary>
+    /// <seealso cref="System.EventArgs" />
+    public class RequestDataDecryptionEventArgs: EventArgs
+    {
+        /// <summary>
+        /// Gets or sets the data which is requested to be decrypted by an event.
+        /// </summary>
+        /// <value>The data which is requested to be decrypted by an event.</value>
+        public byte [] Data { get; set; }
+    }
+}
