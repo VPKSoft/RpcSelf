@@ -15,6 +15,7 @@
     <PackageTags>rpc tcp ipc</PackageTags>
     <PackageReleaseNotes>See: https://github.com/VPKSoft/RpcSelf/blob/main/CHANGELOG.md</PackageReleaseNotes>
     <Description>Test application for the client side of the library.</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

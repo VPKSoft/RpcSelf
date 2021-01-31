@@ -15,6 +15,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>rpc tcp ipc</PackageTags>
     <PackageReleaseNotes>See: https://github.com/VPKSoft/RpcSelf/blob/main/CHANGELOG.md</PackageReleaseNotes>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

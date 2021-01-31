@@ -171,20 +171,9 @@ namespace RpcSelf
             }
 
             stopped = true;
-
-            var safeJoin = false;
-            for (int i = 0; i < 5000; i += 100)
+            if (ServerListenerThread?.Join(150) != true)
             {
-                if (ServerListenerThread.Join(100))
-                {
-                    safeJoin = true;
-                    break;
-                }
-            }
-
-            if (!safeJoin)
-            {
-                ServerListenerThread.Interrupt();
+                ServerListenerThread?.Interrupt();
             }
         }
 
